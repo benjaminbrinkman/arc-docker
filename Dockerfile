@@ -5,7 +5,7 @@ WORKDIR /arc
 
 RUN apt-get update && \
 apt-get install -y --no-install-recommends \
-ca-certificates git racket rlwrap && \
+ca-certificates git racket && \
 rm -rf /var/lib/apt/lists/*
 
 ENV ARC_BRANCH stable
