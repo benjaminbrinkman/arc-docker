@@ -14,6 +14,12 @@ ENV PATH /arc:$PATH
 
 RUN git clone $ARC_URL -b $ARC_BRANCH /arc
 
-ADD ./arc.sh /arc
+ADD srv.arc /arc
+ADD arc.sh /arc
+
+RUN groupadd -g 999 arcgroup
+RUN useradd -u 999 arcuser
+RUN mkdir -p /arc/arc/logs
+RUN chown arcuser:arcgroup /arc/arc/logs
 
 CMD ["arc.sh"]
